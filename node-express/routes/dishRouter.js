@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const DishId = require('./dishIdRouter');
 const dishRouter = express.Router();
 dishRouter.use(bodyParser.json());
+dishRouter.use('/:dishId', DishId);
 dishRouter.route('/')
 .all( (req,res,next) => {
     res.statusCode = 200;
